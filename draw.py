@@ -43,8 +43,8 @@ def drawWizard(canvas):
 
 def gameOverScreen(canvas):
     #Draws game over screen when you lose
-    fontSize = canvas.data.canvasWidth/15
-    margin = canvas.data.canvasHeight/10
+    fontSize = int(canvas.data.canvasWidth/15)
+    margin = int(canvas.data.canvasHeight/10)
     canvas.create_rectangle(0,0,canvas.data.canvasWidth, 
         canvas.data.canvasHeight, fill = 'black')
     canvas.create_text(canvas.data.canvasWidth/2, canvas.data.canvasHeight/4,
@@ -140,13 +140,13 @@ def drawBall(canvas):
 
 def splashScreen(canvas):
     #This is the starting splash screen
-    titleText = canvas.data.canvasWidth * 1/4
-    subText = canvas.data.canvasWidth * 1/25
-    underTitle = canvas.data.canvasWidth * 1/10
-    canvas.create_text(canvas.data.canvasWidth/2, canvas.data.canvasHeight/6,
+    titleText = int(canvas.data.canvasWidth * 1/4)
+    subText = int(canvas.data.canvasWidth * 1/25)
+    underTitle = int(canvas.data.canvasWidth * 1/10)
+    canvas.create_text(int(canvas.data.canvasWidth/2), int(canvas.data.canvasHeight/6),
         text = "ZUMA", font = ("Papyrus", titleText), fill = "white")
-    canvas.create_text(canvas.data.canvasWidth/2, canvas.data.canvasHeight/6 +
-        underTitle, text = "(ultra lite 2.0)", font = ("Papyrus", subText), 
+    canvas.create_text(int(canvas.data.canvasWidth/2), int(canvas.data.canvasHeight/6 +
+        underTitle), text = "(ultra lite 2.0)", font = ("Papyrus", subText),
         fill = "white")
     instructions(canvas)
 
@@ -159,12 +159,12 @@ def instructions(canvas):
     height = 6*canvas.data.canvasHeight/9.2
     canvas.create_rectangle(rightMargin, topMargin, leftMargin, 
         topMargin + height, fill = None, width = 2, outline = "brown")
-    text = canvas.data.canvasWidth * 1/50
-    canvas.create_text(canvas.data.canvasWidth/2, 
-        canvas.data.canvasHeight * 1/3,
+    text = int(canvas.data.canvasWidth * 1/50)
+    canvas.create_text(int(canvas.data.canvasWidth/2),
+        int(canvas.data.canvasHeight * 1/3),
         text = "Game Instructions", font = ("Papyrus", 2*text), fill = "brown")
-    canvas.create_text(canvas.data.canvasWidth/2, 
-        canvas.data.canvasHeight * 1/3,
+    canvas.create_text(int(canvas.data.canvasWidth/2),
+        int(canvas.data.canvasHeight * 1/3),
         text = """
     Welcome to the lands of Zuma! Dark magic has plagued your lands and you 
     must save them. Evil sorcerors have enchanted colored balls to move in a 
@@ -190,9 +190,9 @@ def instructions(canvas):
 
 def gameInfo(canvas
     ):
-    fontSize = canvas.data.canvasWidth/25
-    margin = canvas.data.canvasHeight/15
-    canvas.create_text(canvas.data.canvasWidth/5, margin,
+    fontSize = int(canvas.data.canvasWidth/25)
+    margin = int(canvas.data.canvasHeight/15)
+    canvas.create_text(int(canvas.data.canvasWidth/5), margin,
         text = "Level: %d" % (canvas.data.level), font = ("Papyrus", fontSize),
         anchor = 'w')
     canvas.create_text(canvas.data.canvasWidth * 4/5, margin,

@@ -1,6 +1,6 @@
 # Written in Python 2.7
 
-from Tkinter import *
+from tkinter import *
 import ball
 import settings
 import draw

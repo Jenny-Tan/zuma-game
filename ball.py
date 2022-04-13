@@ -77,7 +77,7 @@ def hitBall(canvas, x, y, userBallx, userBally):
 def moveBallsBack(canvas, i):
     #When the user ball inserts, this function allows the rest of the balls
     #to be moved up one to account for the inserted user ball
-    for index in xrange(i,-1,-1):
+    for index in range(i,-1,-1):
         dx, dy = findBallPosition(canvas, canvas.data.balls[index])
         canvas.data.balls[index][0] += dx
         canvas.data.balls[index][1] += dy
@@ -86,7 +86,7 @@ def deleteAddBalls(canvas):
     #This function inserts the user balls and deletes balls if conditions
     #are met.
     if canvas.data.fireUserBall == True:
-        for i in xrange(len(canvas.data.balls)): #Iterate through all balls
+        for i in range(len(canvas.data.balls)): #Iterate through all balls
             x = canvas.data.balls[i][0]
             y = canvas.data.balls[i][1]
             ballColor = canvas.data.balls[i][2]
@@ -123,7 +123,7 @@ def delete3ColorBallsInRow(canvas, index):
     currentState = copy.deepcopy(canvas.data.balls)
     if end - start >= 2:
         listPoppedBalls = [] #Keep the list of popped ball locations
-        for num in xrange(start, end + 1): #Will use this list for joining
+        for num in range(start, end + 1): #Will use this list for joining
             x = currentState[num][0]
             y = currentState[num][1]
             cords = [x,y]
@@ -158,7 +158,7 @@ def joinBalls(canvas, start, end, poppedList):
     currentState = copy.deepcopy(canvas.data.balls)
     numBalls = end - start + 1
     movedList = []
-    for index in xrange(start - 1, -1, -1):
+    for index in range(start - 1, -1, -1):
         movedList.append(currentState[index])
     poppedList.reverse()
     if start > 0:
@@ -166,13 +166,13 @@ def joinBalls(canvas, start, end, poppedList):
             endPopped = -1
         else:
             endPopped = start - numBalls - 1
-        for i in xrange(start-1, endPopped, -1): #First put balls in the
+        for i in range(start-1, endPopped, -1): #First put balls in the
             ball = canvas.data.balls[i]          #position that popped
             poppedI = start - 1 - i              #balls were
             ball[0] = poppedList[poppedI][0]
             ball[1] = poppedList[poppedI][1]
         if start > numBalls: #If there are still balls left to move
-            for j in xrange(endPopped, -1, -1):  #Then, put the rest of the
+            for j in range(endPopped, -1, -1):  #Then, put the rest of the
                 ball = canvas.data.balls[j]      #balls in moved up positions
                 movedI = endPopped - j
                 ball[0] = movedList[movedI][0]
@@ -200,7 +200,7 @@ def ballList(canvas):
     ballList = []
     x = -canvas.data.ballRadius
     y = 2*canvas.data.ballRadius*3 
-    for i in xrange(canvas.data.numberBalls):
+    for i in range(canvas.data.numberBalls):
         randomIndex = random.randint(0, len(canvas.data.ballColors) - 1)
         color = canvas.data.ballColors[randomIndex]
         newBall = [x,y,color]
